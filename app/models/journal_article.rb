@@ -6,13 +6,13 @@
 class JournalArticle < ActiveFedora::Base
   include Hydra::ModelMethods
 
-  #has_metadata :name => "descMetadata", :type=> JournalArticleModsDatastream
+  has_metadata :name => "descMetadata", :type=> JournalArticleModsDatastream
   has_metadata :name => "rightsMetadata", :type => Hydra::RightsMetadata
 
 
 
   # Uses the Hydra MODS Article profile for tracking most of the descriptive metadata
-  has_metadata :name => "descMetadata", :type => Hydra::ModsArticle
+ # has_metadata :name => "descMetadata", :type => Hydra::ModsArticle
 
 
   #  # The delegate method allows you to set up attributes on the model that are stored in datastreams

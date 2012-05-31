@@ -2,15 +2,15 @@
 require 'spec_helper'
 
 
-logger = Logger.new(STDOUT)
+#logger = Logger.new(STDOUT)
 
 
 describe JournalArticleModsDatastream do
   before(:each) do
-    logger.info("JournalArticleModsDatastream SPEC  START")
+#    logger.info("JournalArticleModsDatastream SPEC  START")
     @mods = fixture("article_mods_sample.xml")
     @ds = JournalArticleModsDatastream.from_xml(@mods)
-    logger.info("JournalArticleModsDatastream SPEC  HAR INDLAEST")
+ #   logger.info("JournalArticleModsDatastream SPEC  HAR INDLAEST")
 
   end
   it "should expose bibliographic info for journal articles with explicit terms and simple proxies" do

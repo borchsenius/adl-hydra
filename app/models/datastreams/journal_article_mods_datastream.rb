@@ -9,7 +9,7 @@ class JournalArticleModsDatastream < ActiveFedora::NokogiriDatastream
 
   # OM (Opinionated Metadata) terminology mapping for the mods xml
   set_terminology do |t|
-    print "start set terminology JournalArticleModsDatastream"
+    #print "start set terminology JournalArticleModsDatastream"
     t.root(:path=>"mods", :xmlns=>"http://www.loc.gov/mods/v3", :schema=>"http://www.loc.gov/standards/mods/v3/mods-3-2.xsd")
     t.title_info(:path=>"titleInfo") {
       t.main_title(:index_as=>[:facetable],:path=>"title", :label=>"title")
@@ -50,6 +50,7 @@ class JournalArticleModsDatastream < ActiveFedora::NokogiriDatastream
 
   end # set_terminology
 
+  #ABWE added this method.
   def self.xml_template
     return Hydra::ModsArticle.xml_template
   end
