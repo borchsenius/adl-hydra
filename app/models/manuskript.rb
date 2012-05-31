@@ -14,7 +14,7 @@ class Manuskript < ActiveFedora::Base
   # A place to put extra metadata values, e.g. the user id of the object depositor (for permissions)
   #has_metadata :name => "properties", :type => Hydra::Datastream::Properties
 
-  has_metadata :name => "relations", :type => Hydra::Datastream::RelsExtDatastream
+  #has_metadata :name => "relations", :type => Hydra::Datastream::RelsExtDatastream
 
 
   # adds helpful methods for basic hydra objects.
