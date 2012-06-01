@@ -1,0 +1,6 @@
+# app/views/journal_articles/_edit.html.erb
+<%= form_for @journal_article do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.submit "Save" %>
+<% end %>

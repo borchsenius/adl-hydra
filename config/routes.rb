@@ -6,6 +6,7 @@ AdlHydra::Application.routes.draw do
 
   devise_for :users
   resources :journal_articles
+  resources :manuskript
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

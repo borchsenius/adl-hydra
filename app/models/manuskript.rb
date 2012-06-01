@@ -1,15 +1,18 @@
 # GenericContent:  EXAMPLE Model that conforms to the Hydra genericContent and genericMetadata cModels
 class Manuskript < ActiveFedora::Base
-
+  include Hydra::GenericContent
+  include Hydra::ModelMethods
 
   # Uses the Hydra Rights Metadata Schema for tracking access permissions & copyright
-  #  FIXME:  should this have   "include Hydra::ModelMixins::CommonMetadata" instead?
-  has_metadata :name => "rightsMetadata", :type => Hydra::Datastream::RightsMetadata
+  has_metadata :name => "rightsMetadata", :type => Hydra::RightsMetadata
 
   # Uses the GenericContent mixin to conform to the Hydra genericContent cModel
-  include Hydra::GenericContent
 
-  has_metadata :name => "descMetadata", :type => Hydra::ModsArticle
+
+  has_metadata :name => "descMetadata", :type => ManuskriptTeiDatastream
+
+  delegate :title, :to=>"descMetadata", :unique=>"true"
+  delegate :abstract, :to=>"descMetadata", :unique=>"true"
 
   # A place to put extra metadata values, e.g. the user id of the object depositor (for permissions)
   #has_metadata :name => "properties", :type => Hydra::Datastream::Properties
@@ -19,7 +22,6 @@ class Manuskript < ActiveFedora::Base
 
   # adds helpful methods for basic hydra objects.
   # FIXME:  redundate with  GenericContent include above??
-  include Hydra::ModelMethods
 
   def initialize( attrs={} )
     super

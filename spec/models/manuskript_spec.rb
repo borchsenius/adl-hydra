@@ -1,16 +1,16 @@
 require 'spec_helper'
 
-describe JournalArticle do
+describe Manuskript do
 
   before(:each) do
     # This gives you a test article object that can be used in any of the tests
-    @article = JournalArticle.new
+    @article = Manuskript.new
   end
 
   it "should have the specified datastreams" do
     # Check for descMetadata datastream with MODS in it
     @article.datastreams.keys.should include("descMetadata")
-    @article.descMetadata.should be_kind_of Hydra::ModsArticle
+    @article.descMetadata.should be_kind_of ManuskriptTeiDatastream
 
     #JournalArticleModsDatastream
     # Check for rightsMetadata datastream
@@ -18,8 +18,8 @@ describe JournalArticle do
     @article.rightsMetadata.should be_kind_of Hydra::RightsMetadata
 
 
-    @article.datastreams.keys.should include("relations")
-    @article.rightsMetadata.should be_kind_of Hydra::Datastream::RelsExtDatastream
+   # @article.datastreams.keys.should include("relations")
+   # @article.rightsMetadata.should be_kind_of Hydra::Datastream::RelsExtDatastream
   end
 
 
